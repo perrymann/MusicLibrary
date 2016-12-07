@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title></title>
+    </head>
+    <body>
+        <h1 th:text="${artist.name}">Artist</h1>
+        
+        <h2>Albums</h2>
+        <ul>
+            <li th:each="album: ${albumList}">
+                <a th:href="@{/albums/{id}(id=${album.id})}" th:text="${album.title}">Album title</a>
+            </li>
+        </ul>
+        
+        <h2>Add an Album</h2>
+        <form th:action="@{/artists/{id}(id=${artist.id})}" method="POST">
+            Title: <input type="text" name="title"/><br/>
+            Released: <input type="text" name="year"/><br/>
+            Label: <input type="text" name="label"/><br/>
+            <input type="submit" value="Add"/>
+        </form> 
+         
+    </body>
+</html>

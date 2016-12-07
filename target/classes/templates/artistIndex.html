@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Artists</title>
+    </head>
+    <body>
+        <h2>Artists</h2>
+        <ol>
+            <li th:each="artist: ${artists}">
+                <a th:href="@{/artists/{id}(id=${artist.id})}" th:text="${artist.name}">Artist's name</a>
+            </li>
+        </ol>
+            
+        <h2>Add an Artist</h2>
+
+        <form action="/artists/new" method="POST">
+            <input type="text" name="artistName"/>
+            <input type="submit" value="Add"/>
+        </form>
+        
+        <h2>Search for an Artist</h2>
+        
+        <form action="/artists" method="POST">
+            <input type="text" name="artistName"/>
+            <input type="submit" value="Search"/>
+        </form>
+        
+    </body>
+</html>
