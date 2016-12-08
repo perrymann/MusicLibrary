@@ -6,5 +6,6 @@
     </head>
     <body>
         <h1 th:text="${album.title}">Album</h1>
+        <form th:action="@{/albums/{id}(id=${album.id})}" th:method="DELETE"><input type="submit" value="Delete"/></form>
     </body>
 </html>

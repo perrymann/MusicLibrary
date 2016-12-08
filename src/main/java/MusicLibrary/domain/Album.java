@@ -12,6 +12,7 @@ public class Album extends AbstractPersistable<Long> {
     private String title;
     private int releasedIn;
     private String label;
+    private Long artistId;
     
     /* 
     @ManyToMany (mappedBy = "albums")
@@ -24,6 +25,15 @@ public class Album extends AbstractPersistable<Long> {
         return tags;
     }
     */
+
+    public Long getArtist() {
+        return artistId;
+    }
+
+    public void setArtist(Long artistId) {
+        this.artistId = artistId;
+    }
+    
     public String getTitle() {
         return title;
     }

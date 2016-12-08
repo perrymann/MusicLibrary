@@ -3,6 +3,7 @@ package MusicLibrary.controller;
 
 import MusicLibrary.domain.Artist;
 import MusicLibrary.repository.ArtistRepository;
+import MusicLibrary.service.ArtistAlbumService;
 import java.util.ArrayList;
 import java.util.List;
 import javax.transaction.Transactional;
@@ -19,7 +20,10 @@ public class ArtistController {
     
     @Autowired
     private ArtistRepository artistRepo;
-  
+    
+    @Autowired
+    private ArtistAlbumService aas;
+    
     @RequestMapping("/artists")
     public String index(Model model) {
         model.addAttribute("artists", artistRepo.findAll());
@@ -49,5 +53,11 @@ public class ArtistController {
         return ret;
     }
     
-    // delete!!!
+    @RequestMapping(value="/artists/{id}", method=RequestMethod.DELETE)
+    public String deleteArtist(@PathVariable Long id){
+        aas.deleteArtistAndDeleteAlbums(id);
+        return "redirect:/artists";
+    }
+    
+    
 }
