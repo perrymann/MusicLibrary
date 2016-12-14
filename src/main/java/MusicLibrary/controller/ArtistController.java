@@ -4,10 +4,9 @@ package MusicLibrary.controller;
 import MusicLibrary.domain.Artist;
 import MusicLibrary.repository.ArtistRepository;
 import MusicLibrary.service.ArtistAlbumService;
-import java.util.ArrayList;
-import java.util.List;
-import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -53,6 +52,7 @@ public class ArtistController {
         return ret;
     }
     
+    @Secured("ADMIN")
     @RequestMapping(value="/artists/{id}", method=RequestMethod.DELETE)
     public String deleteArtist(@PathVariable Long id){
         aas.deleteArtistAndDeleteAlbums(id);

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Style tags</title>
+    </head>
+    <body>
+        <h2>Style tags</h2>
+        <ol>
+            <li th:each="styletag: ${styletags}">
+                <a th:href="@{/styletags/{id}(id=${styletag.id})}" th:text="${styletag.name}">Style tag</a>
+            </li>
+        </ol>
+    </body>
+</html>

@@ -1,7 +1,10 @@
 
 package MusicLibrary.domain;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 // describes characteristics associated with an album. 
@@ -11,13 +14,22 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @Entity
 public class StyleTag extends AbstractPersistable<Long> {
 
-    private String description;
+    private String name;
+    @ManyToMany
+    private List<Album> albums; 
     
-    public String getDescription() {
-        return description;
+    public List<Album> getAlbums() {
+        if (albums == null) {
+            albums = new ArrayList<>();
+        } 
+        return albums;
+    }
+    
+    public String getName() {
+        return name;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setName(String name) {
+        this.name = name;
     }
 }

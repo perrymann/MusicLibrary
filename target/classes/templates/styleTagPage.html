@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title></title>
+    </head>
+    <body>
+        Albums with a styletag "<h1 th:text="${styletag.name}">Album</h1>"
+            <ol>
+                <li th:each="album: ${styletag.albums}">
+                    <a th:text="${album.title}">Album</a>
+                </li>
+            </ol>
+    </body>
+</html>

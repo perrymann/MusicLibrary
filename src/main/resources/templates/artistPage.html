@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.springframework.org/security/tags">
     <head>
         <meta charset="UTF-8"/>
         <title></title>
     </head>
     <body>
         <h1 th:text="${artist.name}">Artist</h1>
-        <form th:action="@{/artists/{id}(id=${artist.id})}" th:method="DELETE"><input type="submit" value="Delete artist"/></form>
-        
-        <h2>Albums</h2>
+        <div sec:authorize="hasAuthority('ADMIN')">
+            <form th:action="@{/artists/{id}(id=${artist.id})}" th:method="DELETE"><input type="submit" value="Delete artist"/></form>
+        </div>
+        <h3>Albums</h3>
         <ul>
             <li th:each="album: ${albumList}">
                 <a th:href="@{/albums/{id}(id=${album.id})}" th:text="${album.title}">Album title</a>
             </li>
         </ul>
         
-        <h2>Add an Album</h2>
+        <h3>Add an Album</h3>
         <form th:action="@{/artists/{id}(id=${artist.id})}" method="POST">
             Title: <input type="text" name="title"/><br/>
             Released: <input type="text" name="year"/><br/>

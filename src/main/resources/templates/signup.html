@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Signup</title>
+    </head>
+    <body>
+        <h2>Signup</h2>
+        <form method="POST" th:action="@{/authenticate}">
+            <input type="text" name="username" placeholder="Username" />
+            <input type="text" name="password" placeholder="password" /> 
+            <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
+            <input type="submit" value="sign in" />
+        </form>
+    </body>
+</html>
