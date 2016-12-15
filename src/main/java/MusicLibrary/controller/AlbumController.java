@@ -3,6 +3,7 @@ package MusicLibrary.controller;
 
 import MusicLibrary.domain.Album;
 import MusicLibrary.domain.Artist;
+import MusicLibrary.domain.Comment;
 import MusicLibrary.domain.StyleTag;
 import MusicLibrary.repository.AlbumRepository;
 import MusicLibrary.repository.ArtistRepository;
@@ -106,6 +107,9 @@ public class AlbumController {
         Artist artist = album.getArtist();
         ass.removeAlbumsFromTags(album);
         aas.removeAlbumFromArtist(album, artist);
+        for (Comment i : album.getComments()){
+            acs.removeComment(i.getId());
+        }
         albumRepo.delete(album);
            
         return "redirect:/artists/" + artist.getId();
