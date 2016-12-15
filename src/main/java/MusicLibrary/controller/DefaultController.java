@@ -38,13 +38,12 @@ public class DefaultController {
     
     @Autowired
     private PasswordEncoder passwordEncoder;
-    
-    @Profile("dev")
-    @PostConstruct
+   
+    @PostConstruct @Profile("dev")
     public void init() {
         
         Account account1 = new Account();
-        account1.setUsername("steve");
+        account1.setUsername("johannes");
         account1.setPassword(passwordEncoder.encode("guttenberg"));
         account1.setIsAdmin(true);
         accountRepo.save(account1);
