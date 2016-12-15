@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-@Profile("dev")
+@Profile("default")
 @Configuration
 @EnableWebSecurity
 public class DefaultSecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -32,7 +32,7 @@ public class DefaultSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.formLogin()
                 .permitAll();
     }
-    /*
+    /* Ei toiminut toivotusti
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
@@ -41,6 +41,7 @@ public class DefaultSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .withUser("james").password("bondbond").roles("USER");
     }
     */
+    
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());

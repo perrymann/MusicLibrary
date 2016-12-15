@@ -16,7 +16,6 @@ import MusicLibrary.repository.ArtistRepository;
 import MusicLibrary.repository.StyleTagRepository;
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,11 +38,11 @@ public class DefaultController {
     @Autowired
     private PasswordEncoder passwordEncoder;
    
-    @PostConstruct @Profile("dev")
+    @PostConstruct
     public void init() {
         
         Account account1 = new Account();
-        account1.setUsername("johannes");
+        account1.setUsername("steve");
         account1.setPassword(passwordEncoder.encode("guttenberg"));
         account1.setIsAdmin(true);
         accountRepo.save(account1);
@@ -55,7 +54,7 @@ public class DefaultController {
         accountRepo.save(account2);
         
         Artist artist = new Artist();
-        artist.setName("Keke");
+        artist.setName("Van Halen");
         artistRepo.save(artist);
         StyleTag style1 = new StyleTag();
         style1.setName("Heavy");
@@ -69,9 +68,9 @@ public class DefaultController {
         album1.getTags().add(style1);
         album1.getTags().add(style2);
         album1.setArtist(artist);
-        album1.setTitle("I");
-        album1.setReleasedIn(1999);
-        album1.setLabel("Poko");
+        album1.setTitle("Fair Warning");
+        album1.setReleasedIn(1982);
+        album1.setLabel("Warner Bros.");
         albumRepo.save(album1);
         
         // Album "II"
@@ -79,9 +78,9 @@ public class DefaultController {
         album2.getTags().add(style1);
         //album2.getTags().add(style2);
         album2.setArtist(artist);
-        album2.setTitle("II");
-        album2.setReleasedIn(2000);
-        album2.setLabel("Poko");
+        album2.setTitle("5150");
+        album2.setReleasedIn(1986);
+        album2.setLabel("Warner Bros.");
         albumRepo.save(album2);
         
         artist.getAlbums().add(album1);
