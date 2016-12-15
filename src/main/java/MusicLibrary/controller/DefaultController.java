@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package MusicLibrary.controller;
 
 
@@ -42,17 +37,18 @@ public class DefaultController {
     public void init() {
         
         Account account1 = new Account();
-        account1.setUsername("steve");
-        account1.setPassword(passwordEncoder.encode("guttenberg"));
+        account1.setUsername("bubba");
+        account1.setPassword(passwordEncoder.encode("smith123"));
         account1.setIsAdmin(true);
         accountRepo.save(account1);
         
         Account account2 = new Account();
-        account2.setUsername("jari");
-        account2.setPassword(passwordEncoder.encode("puikkonen"));
+        account2.setUsername("matti nykänen");
+        account2.setPassword(passwordEncoder.encode("kneissel"));
         account2.setIsAdmin(false);
         accountRepo.save(account2);
         
+        /*
         Artist artist = new Artist();
         artist.setName("Van Halen");
         artistRepo.save(artist);
@@ -92,6 +88,7 @@ public class DefaultController {
         styleTagRepo.save(style1);
         styleTagRepo.save(style2);
         artistRepo.save(artist);
+        */
     }
    
     @RequestMapping("*")
