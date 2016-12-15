@@ -24,9 +24,9 @@ public class CustomUserDetailsService implements UserDetailsService {
         if (account == null) {
             throw new UsernameNotFoundException("No such user: "+ username);
         }
-        String status = "USER";
+        String status = "ROLE_USER";
         if (account.isAdmin()) {
-            status = "ADMIN";
+            status = "ROLE_ADMIN";
         } 
         return new org.springframework.security.core.userdetails.User(
                 account.getUsername(),

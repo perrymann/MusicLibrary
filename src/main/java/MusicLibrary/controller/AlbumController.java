@@ -99,7 +99,7 @@ public class AlbumController {
     
     // Delete an album. the request is also forwarded to the ArtistAlbumService that handles the interaction between an album and an artist 
     
-    @Secured("ADMIN")
+    @Secured("ROLE_ADMIN")
     @RequestMapping(value="/albums/{id}", method=RequestMethod.DELETE)
     public String deleteAlbum(@PathVariable Long id) {
         Album album = albumRepo.findOne(id);

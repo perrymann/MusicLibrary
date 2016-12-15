@@ -25,7 +25,6 @@ public class DefaultSecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
         http.headers().frameOptions().sameOrigin();
-        
         http.authorizeRequests()
                 .antMatchers("/h2-console/*").permitAll()
                 .anyRequest().authenticated();
@@ -36,9 +35,9 @@ public class DefaultSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("devadmin").password("devadmin").roles("ADMIN");
+                .withUser("devadmin").password("devadmin").roles("ROLE_ADMIN");
         auth.inMemoryAuthentication()
-                .withUser("devuser").password("devuseruser").roles("USER");
+                .withUser("devuser").password("devuseruser").roles("ROLE_USER");
     }
    
     /*

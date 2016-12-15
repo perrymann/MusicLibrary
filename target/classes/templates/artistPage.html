@@ -23,7 +23,9 @@
             Title: <input type="text" name="title"/><br/>
             Released: <input type="text" name="year"/><br/>
             Label: <input type="text" name="label"/><br/>
+            <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
             <input type="submit" value="Add"/>
+           
         </form> 
          
     </body>

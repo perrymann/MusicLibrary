@@ -8,8 +8,7 @@
         <h2>Signup</h2>
         <form method="POST" th:action="@{/authenticate}">
             <input type="text" name="username" placeholder="Username" />
-            <input type="text" name="password" placeholder="password" /> 
-            <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
+            <input type="text" name="password" placeholder="password" />
             <input type="submit" value="sign in" />
         </form>
     </body>
