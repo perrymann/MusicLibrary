@@ -40,19 +40,19 @@ public class DefaultController {
     
     @PostConstruct
     public void init() {
-        
+        /*
         Account account1 = new Account();
-        account1.setUsername("john");
-        account1.setPassword(passwordEncoder.encode("rambokolmonen"));
+        account1.setUsername("steve");
+        account1.setPassword(passwordEncoder.encode("guttenberg"));
         account1.setIsAdmin(true);
         accountRepo.save(account1);
         
         Account account2 = new Account();
-        account2.setUsername("james");
-        account2.setPassword(passwordEncoder.encode("bondbond"));
+        account2.setUsername("jari");
+        account2.setPassword(passwordEncoder.encode("puikkonen"));
         account2.setIsAdmin(false);
         accountRepo.save(account2);
-        
+        */
         Artist artist = new Artist();
         artist.setName("Keke");
         artistRepo.save(artist);
