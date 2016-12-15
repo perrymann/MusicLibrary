@@ -27,7 +27,7 @@
                     <span th:text="${comment.content}">Comment</span>
                     ~ added by <span th:text="${comment.account.username}">Added by</span>
                     (<span th:text="${comment.date}">date</span>)
-                    <div sec:authorize="hasAuthority('ADMIN')">
+                    <div sec:authorize="hasAuthority('ROLE_ADMIN')">
                         <form th:action="@{/comments/{id}(id=${comment.id})}" th:method="DELETE"><input type="submit" value="Delete"/></form>
                     </div>
                 </li>
@@ -54,7 +54,7 @@
             <input type="submit" value="Add new tag!"/>
         </form>
         
-        <div sec:authorize="hasAuthority('ADMIN')">
+        <div sec:authorize="hasAuthority('ROLE_ADMIN')">
             <form th:action="@{/albums/{id}(id=${album.id})}" th:method="DELETE"><input type="submit" value="Delete"/></form>
         </div>
     </body>
