@@ -18,6 +18,7 @@
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/repository/AlbumRepository.java
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/config/DefaultSecurityConfiguration.java
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/service/CustomUserDetailsService.java
+/Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/config/ProductionProfile.java
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/controller/StyleTagController.java
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/controller/AccountController.java
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/domain/Album.java

@@ -1,17 +1,8 @@
-MusicLibrary/repository/CommentRepository.class
-MusicLibrary/service/AlbumStyleTagService.class
-MusicLibrary/service/AlbumCommentService.class
-MusicLibrary/repository/AccountRepository.class
-MusicLibrary/repository/StyleTagRepository.class
-MusicLibrary/controller/DefaultController.class
 MusicLibrary/domain/StyleTag.class
 MusicLibrary/MusicLibraryApplication.class
 MusicLibrary/service/CustomUserDetailsService.class
 MusicLibrary/domain/Album.class
-MusicLibrary/domain/Account.class
-MusicLibrary/controller/AccountController.class
 MusicLibrary/controller/StyleTagController.class
-MusicLibrary/controller/AlbumController.class
 MusicLibrary/service/ArtistAlbumService.class
 MusicLibrary/controller/ArtistController.class
 MusicLibrary/repository/ArtistRepository.class
