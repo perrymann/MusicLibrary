@@ -3,7 +3,6 @@ MusicLibrary/service/AlbumStyleTagService.class
 MusicLibrary/service/AlbumCommentService.class
 MusicLibrary/repository/AccountRepository.class
 MusicLibrary/repository/StyleTagRepository.class
-MusicLibrary/config/SecurityConfiguration.class
 MusicLibrary/controller/DefaultController.class
 MusicLibrary/domain/StyleTag.class
 MusicLibrary/MusicLibraryApplication.class

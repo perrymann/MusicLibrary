@@ -12,10 +12,11 @@
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/repository/ArtistRepository.java
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/domain/StyleTag.java
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/domain/Comment.java
-/Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/config/SecurityConfiguration.java
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/service/ArtistAlbumService.java
+/Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/config/ProductionSecurityConfiguration.java
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/controller/ArtistController.java
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/repository/AlbumRepository.java
+/Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/config/DefaultSecurityConfiguration.java
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/service/CustomUserDetailsService.java
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/controller/StyleTagController.java
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/controller/AccountController.java
