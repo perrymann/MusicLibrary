@@ -24,6 +24,7 @@ public class ProductionSecurityConfiguration extends WebSecurityConfigurerAdapte
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable();
         http.authorizeRequests()
                 .anyRequest().authenticated().and()
                 .formLogin().permitAll().and()
