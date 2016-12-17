@@ -5,6 +5,8 @@
         <title>Artists</title>
     </head>
     <body>
+        You are logged in as <span sec:authentication="name"></span>
+        
         <h2>Artists</h2>
         <ol>
             <li th:each="artist: ${artists}">
@@ -25,6 +27,10 @@
             <input type="text" name="artistName"/>
             <input type="submit" value="Search"/>
         </form>
-        
+        <div th:fragment="logout" class="logout" sec:authorize="isAuthenticated()">		
+            <form action="#" th:action="@{/logout}" method="post">					
+                <input type="submit" value="Logout" />
+            </form>
+        </div>    
     </body>
 </html>

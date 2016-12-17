@@ -5,14 +5,21 @@
         <title>Login</title>
     </head>
     <body>
-        <h1>GENREKILLER</h1>
+        <h1>MUSIC LIBRARY</h1>
         
         <h3>Login</h3>
-        <form method="POST" th:action="@{/authenticate}">
+        <form method="POST" th:action="@{/login}"> 
+            <div th:if="${param.error}">    
+                Invalid username and password.
+            </div>
+            <div th:if="${param.logout}" > 
+                You have been logged out.
+            </div>
             <input type="text" name="username" placeholder="Username" />
-            <input type="text" name="password" placeholder="password" /> 
+            <input type="password" name="password" placeholder="password" /> 
             <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
             <input type="submit" value="sign in" />
         </form>
+        Sign up here!
     </body>
 </html>

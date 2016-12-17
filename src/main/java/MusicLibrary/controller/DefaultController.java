@@ -2,9 +2,9 @@ package MusicLibrary.controller;
 
 
 import MusicLibrary.domain.Account;
-import MusicLibrary.domain.Album;
-import MusicLibrary.domain.Artist;
-import MusicLibrary.domain.StyleTag;
+//import MusicLibrary.domain.Album;
+//import MusicLibrary.domain.Artist;
+//import MusicLibrary.domain.StyleTag;
 import MusicLibrary.repository.AccountRepository;
 import MusicLibrary.repository.AlbumRepository;
 import MusicLibrary.repository.ArtistRepository;
@@ -35,7 +35,7 @@ public class DefaultController {
    
     @PostConstruct
     public void init() {
-        /*
+        
         Account account1 = new Account();
         account1.setUsername("bubba");
         account1.setPassword(passwordEncoder.encode("smith123"));
@@ -47,7 +47,7 @@ public class DefaultController {
         account2.setPassword(passwordEncoder.encode("kneissel"));
         account2.setIsAdmin(false);
         accountRepo.save(account2);
-        */
+        
         /*
         Artist artist = new Artist();
         artist.setName("Van Halen");

@@ -88,19 +88,19 @@ public class AlbumController {
                 return "redirect:/artists/" + id;
             }
         }
-        Album x = new Album();
-        x.setTitle(title);
-        x.setReleasedIn(Integer.parseInt(year));
-        x.setLabel(label);
-        x.setArtist(artist);
-        albumRepo.save(x);
-        aas.addAlbumToArtist(x, id);
+        Album album = new Album();
+        album.setTitle(title);
+        album.setReleasedIn(Integer.parseInt(year));
+        album.setLabel(label);
+        album.setArtist(artist);
+        albumRepo.save(album);
+        aas.addAlbumToArtist(album, id);
         return "redirect:/artists/" + id;
     }
     
     // Delete an album. the request is also forwarded to the ArtistAlbumService that handles the interaction between an album and an artist 
     
-    @Secured("ROLE_ADMIN")
+    @Secured("ADMIN")
     @RequestMapping(value="/albums/{id}", method=RequestMethod.DELETE)
     public String deleteAlbum(@PathVariable Long id) {
         Album album = albumRepo.findOne(id);
@@ -108,8 +108,9 @@ public class AlbumController {
         ass.removeAlbumsFromTags(album);
         aas.removeAlbumFromArtist(album, artist);
         for (Comment i : album.getComments()){
-            acs.removeComment(i.getId());
+            commentRepo.delete(i);
         }
+        
         albumRepo.delete(album);
            
         return "redirect:/artists/" + artist.getId();
@@ -122,7 +123,7 @@ public class AlbumController {
     }
     
     @RequestMapping(value = "/albums/{id}/comment", method=RequestMethod.POST)
-    public String addComment(@RequestParam String content, @PathVariable String id){
+    public String commentAlbum(@RequestParam String content, @PathVariable String id){
         acs.commentAlbum(content, Long.parseLong(id));
         return "redirect:/albums/" + id; 
     }

@@ -38,14 +38,15 @@
             <input type="text" name="content"/>
             <input type="submit" value="Add comment"/>
         </form>
-     
-        <h4>Tag album</h4>
-        <form th:action="@{/albums/{id}(id=${album.id})}" method="POST">
-            <select name="id">
-                <option th:each="styleTag : ${styleTags}" th:value="${styleTag.id}" th:text="${styleTag.name}"></option>
-            </select>
-            <input type="submit" value="Tag album!"/>
-        </form>
+        <div th:if="${not #lists.isEmpty(styleTags)}"> 
+            <h4>Tag album</h4>
+            <form th:action="@{/albums/{id}(id=${album.id})}" method="POST">
+                <select name="id">
+                    <option th:each="styleTag : ${styleTags}" th:value="${styleTag.id}" th:text="${styleTag.name}"></option>
+                </select>
+                <input type="submit" value="Tag album!"/>
+            </form>
+        </div>
         
         <h4>Add new tag to tag list!</h4>
         <form action="/styletags/new" method="POST">
@@ -57,5 +58,8 @@
         <div sec:authorize="hasAuthority('ADMIN')">
             <form th:action="@{/albums/{id}(id=${album.id})}" th:method="DELETE"><input type="submit" value="Delete"/></form>
         </div>
+        <p>
+            <a href="/artists" >All artists</a> | <a href="/albums" >All albums</a>
+        </p>  
     </body>
 </html>

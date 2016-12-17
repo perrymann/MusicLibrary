@@ -8,7 +8,7 @@
     </head>
     <body>
         <h1 th:text="${artist.name}">Artist</h1>
-        <div sec:authorize="hasAuthority('ROLE_ADMIN')">
+        <div sec:authorize="hasAuthority('ADMIN')">
             <form th:action="@{/artists/{id}(id=${artist.id})}" th:method="DELETE"><input type="submit" value="Delete artist"/></form>
         </div>
         <h3>Albums</h3>
@@ -27,6 +27,8 @@
             <input type="submit" value="Add"/>
            
         </form> 
-         
+        <p>
+            <a href="/artists" >All artists</a> | <a href="/albums" >All albums</a>
+        </p>    
     </body>
 </html>

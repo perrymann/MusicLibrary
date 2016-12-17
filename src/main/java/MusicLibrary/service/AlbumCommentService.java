@@ -7,6 +7,7 @@ import MusicLibrary.repository.AccountRepository;
 import MusicLibrary.repository.AlbumRepository;
 import MusicLibrary.repository.CommentRepository;
 import java.util.Date;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -44,6 +45,12 @@ public class AlbumCommentService {
         albumRepo.save(album);
         commentRepo.delete(comment);
         return album.getId();
+    }
+    
+    public void removeComments(List<Comment> list) {
+        for(Comment i : list) {
+            commentRepo.delete(i);
+        }
     }
     
     

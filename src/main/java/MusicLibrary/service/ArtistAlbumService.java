@@ -25,6 +25,9 @@ public class ArtistAlbumService {
     
     @Autowired
     private AlbumStyleTagService ass;
+    
+    @Autowired
+    private AlbumCommentService acs;
      
     public void addAlbumToArtist(Album album, Long artistId) {
         Artist artist = artistRepo.findOne(artistId);
@@ -42,13 +45,14 @@ public class ArtistAlbumService {
         List<Long> albumIds = new ArrayList<>();
         
         for (Album a : list) {
+            acs.removeComments(a.getComments());
             ass.removeAlbumsFromTags(a);
             albumIds.add(a.getId());
         }
         list.clear();
        
         for (Long i : albumIds) {
-            albumRepo.delete(i);
+           albumRepo.delete(i);
         }
         artistRepo.delete(id);
     }

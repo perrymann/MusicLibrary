@@ -52,10 +52,11 @@ public class ArtistController {
         return ret;
     }
     
-    @Secured("ROLE_ADMIN")
+    @Secured("ADMIN")
     @RequestMapping(value="/artists/{id}", method=RequestMethod.DELETE)
     public String deleteArtist(@PathVariable Long id){
         aas.deleteArtistAndDeleteAlbums(id);
+        
         return "redirect:/artists";
     }
     

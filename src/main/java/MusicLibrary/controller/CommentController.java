@@ -15,7 +15,7 @@ public class CommentController {
     @Autowired
     private AlbumCommentService acs;
     
-    @Secured("ROLE_ADMIN")
+    @Secured("ADMIN")
     @RequestMapping(value = "/comments/{id}", method = RequestMethod.DELETE)
     public String deleteComment(@PathVariable Long id){
         return "redirect:/albums/" + acs.removeComment(id);

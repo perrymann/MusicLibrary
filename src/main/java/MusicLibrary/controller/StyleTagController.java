@@ -44,7 +44,7 @@ public class StyleTagController {
         return "redirect:/albums/" + albumId;
     }
    
-    @Secured("ROLE_ADMIN")
+    @Secured("ADMIN")
     @RequestMapping(value = "/styletags/{id}", method = RequestMethod.PUT)
     public String removeTagFromAlbum(@PathVariable Long id, @RequestParam Long albumId) {
         ass.removeTagFromAlbum(id, albumId);

@@ -29,23 +29,20 @@ public class DefaultSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/h2-console/*").permitAll()
                 .anyRequest().authenticated();
         http.formLogin()
-                .permitAll();
+                .loginPage("/login")
+                .permitAll().defaultSuccessUrl("/artists");
+        http.logout().permitAll();
     }
-   
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("devadmin").password("devadmin").roles("ROLE_ADMIN");
-        auth.inMemoryAuthentication()
-                .withUser("devuser").password("devuseruser").roles("ROLE_USER");
-    }
-   
     /*
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+        auth.inMemoryAuthentication()
+                .withUser("devadmin").password("devadmin").roles("ADMIN");
+        auth.inMemoryAuthentication()
+                .withUser("devuser").password("devuseruser").roles("USER");
     }
     */
+    
     @Bean 
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
