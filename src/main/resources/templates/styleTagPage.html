@@ -5,10 +5,11 @@
         <title></title>
     </head>
     <body>
-        Albums with a styletag "<h1 th:text="${styletag.name}">Album</h1>"
+        <h1>Albums with a styletag <span th:text="${styletag.name}">Album</span></h1>
             <ol>
                 <li th:each="album: ${styletag.albums}">
-                    <a th:text="${album.title}">Album</a>
+                    <a th:href="@{/albums/{id}(id=${album.id})}" th:text="${album.title}">Album title</a>
+                    <a th:href="@{/styletags/{id}(id=${styletag.id})}" th:text="${styletag.name}">Style tag</a>
                 </li>
             </ol>
     </body>

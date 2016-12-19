@@ -49,7 +49,7 @@
         </div>
         
         <h4>Add new tag to tag list!</h4>
-        <form action="/styletags/new" method="POST">
+        <form th:action="@{/styletags/new}" method="POST">
             <input type="text" name="name"/>
             <input type="hidden"  name="albumId"   th:value="${album.id}"/>
             <input type="submit" value="Add new tag!"/>

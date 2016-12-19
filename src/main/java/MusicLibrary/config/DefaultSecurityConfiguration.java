@@ -33,7 +33,7 @@ public class DefaultSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .permitAll().defaultSuccessUrl("/artists");
         http.logout().permitAll();
     }
-    /*
+   
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
@@ -41,8 +41,13 @@ public class DefaultSecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth.inMemoryAuthentication()
                 .withUser("devuser").password("devuseruser").roles("USER");
     }
-    */
     
+    /*
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+    }
+    */
     @Bean 
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
