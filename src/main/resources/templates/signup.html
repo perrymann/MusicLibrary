@@ -6,10 +6,21 @@
     </head>
     <body>
         <h2>Signup</h2>
-        <form method="POST" th:action="@{/accounts}">
-            <input type="text" name="username" placeholder="Username" />
-            <input type="text" name="password" placeholder="password" />
-            <input type="submit" value="sign up" />
+        <form action="#" th:action="@{/signup}" th:object="${account}" method="POST">
+            <table>
+                <tr>
+                    <td>Username </td>
+                    <td><input type="text" th:field="*{username}" /></td>
+                    <td><div th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Virheviesti</div></td>
+                </tr>
+                <tr>
+                    <td>Password </td>
+                    <td><input type="text" name="password" /></td>
+                </tr> 
+                <tr>
+                    <td><button type="submit" >Sign up</button></td>
+                </tr>
+            </table>
         </form>
     </body>
 </html>

@@ -11,6 +11,7 @@ import MusicLibrary.repository.ArtistRepository;
 import MusicLibrary.repository.StyleTagRepository;
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -29,10 +30,10 @@ public class DefaultController {
     @Autowired
     private AccountRepository accountRepo;
    
-    
     @PostConstruct
     public void init() {
-        
+        // nämä käyttäjät lisätty tietokantaan
+       
         Account account1 = new Account();
         account1.setUsername("bubba");
         account1.setPassword("smith123");
@@ -44,7 +45,7 @@ public class DefaultController {
         account2.setPassword("kneissel");
         account2.setIsAdmin(false);
         accountRepo.save(account2);
-        
+     
         /*
         Artist artist = new Artist();
         artist.setName("Van Halen");

@@ -12,7 +12,6 @@ public class Account extends AbstractPersistable<Long> {
  
     @Column(unique = true)
     @NotBlank(message = "Please choose username between 2 and 30 letters.")
-    @Length(min = 2, max = 30)
     private String username;
     
     @NotBlank
