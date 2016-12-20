@@ -12,7 +12,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-@Profile("default")
+@Profile("production")
 @Configuration
 @EnableWebSecurity
 public class ProductionSecurityConfiguration extends WebSecurityConfigurerAdapter {
