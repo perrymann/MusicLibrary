@@ -31,7 +31,7 @@ public class DefaultController {
    
     @PostConstruct
     public void init() {
-        
+        /*
         Account account1 = new Account();
         account1.setUsername("bubba");
         account1.setPassword("smith123");
@@ -43,7 +43,7 @@ public class DefaultController {
         account2.setPassword("kneissel");
         account2.setIsAdmin(false);
         accountRepo.save(account2);
-        
+        */
         /*
         Artist artist = new Artist();
         artist.setName("Van Halen");
