@@ -11,12 +11,16 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 public class Account extends AbstractPersistable<Long> {
  
     @Column(unique = true)
-    @NotBlank(message = "Please choose username between 2 and 30 letters.")
+    @NotBlank(message = "Username cannot be empty!")
     private String username;
     
     @NotBlank
-    @Length(min = 8)
+    @Length(min = 8,
+            message = "Password must have at least 8 charaters")
     private String password;
+    
+    private String salt;    
+    private boolean admin;
 
     public String getSalt() {
         return salt;
@@ -26,9 +30,6 @@ public class Account extends AbstractPersistable<Long> {
         this.salt = salt;
     }
     
-    private String salt;    
-    private boolean admin;
-
     public boolean isAdmin() {
         return admin;
     }

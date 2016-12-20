@@ -3,6 +3,7 @@ package MusicLibrary.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import org.springframework.data.jpa.domain.AbstractPersistable;
@@ -14,6 +15,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @Entity
 public class StyleTag extends AbstractPersistable<Long> {
 
+    @Column(unique=true)
     private String name;
     @ManyToMany
     private List<Album> albums; 
