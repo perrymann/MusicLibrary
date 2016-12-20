@@ -27,8 +27,16 @@
             <input type="submit" value="Add"/>
            
         </form> 
+        
+         <!-- navigation -->
         <p>
             <a href="/artists" >All artists</a> | <a href="/albums" >All albums</a>
-        </p>    
+        </p>
+        
+        <div th:fragment="logout" class="logout" sec:authorize="isAuthenticated()">		
+            <form action="#" th:action="@{/logout}" method="post">					
+                <input type="submit" value="Logout" />
+            </form>
+        </div> 
     </body>
 </html>

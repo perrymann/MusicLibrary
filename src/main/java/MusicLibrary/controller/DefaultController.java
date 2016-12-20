@@ -11,7 +11,6 @@ import MusicLibrary.repository.ArtistRepository;
 import MusicLibrary.repository.StyleTagRepository;
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -29,25 +28,22 @@ public class DefaultController {
     
     @Autowired
     private AccountRepository accountRepo;
-    
-    @Autowired
-    private PasswordEncoder passwordEncoder;
    
     @PostConstruct
     public void init() {
-        /*
+        
         Account account1 = new Account();
         account1.setUsername("bubba");
-        account1.setPassword(passwordEncoder.encode("smith123"));
+        account1.setPassword("smith123");
         account1.setIsAdmin(true);
         accountRepo.save(account1);
         
         Account account2 = new Account();
         account2.setUsername("matti nykänen");
-        account2.setPassword(passwordEncoder.encode("kneissel"));
+        account2.setPassword("kneissel");
         account2.setIsAdmin(false);
         accountRepo.save(account2);
-        */
+        
         /*
         Artist artist = new Artist();
         artist.setName("Van Halen");
@@ -94,5 +90,15 @@ public class DefaultController {
     @RequestMapping("*")
     public String handleDefault() {
         return "redirect:/artists";
+    }
+    
+    @RequestMapping("/login")
+    public String loginForm(){
+        return "login";
+    }
+    
+    @RequestMapping("/signup")
+    public String signupForm(){
+        return "signup";
     }
 }

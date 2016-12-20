@@ -1,6 +1,5 @@
 MusicLibrary/domain/StyleTag.class
 MusicLibrary/MusicLibraryApplication.class
-MusicLibrary/service/CustomUserDetailsService.class
 MusicLibrary/domain/Album.class
 MusicLibrary/controller/StyleTagController.class
 MusicLibrary/service/ArtistAlbumService.class

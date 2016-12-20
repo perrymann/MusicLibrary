@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.data.jpa.domain.AbstractPersistable;
+import org.springframework.security.crypto.bcrypt.BCrypt;
  
 @Entity
 public class Account extends AbstractPersistable<Long> {
@@ -17,7 +18,16 @@ public class Account extends AbstractPersistable<Long> {
     @NotBlank
     @Length(min = 8)
     private String password;
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
     
+    private String salt;    
     private boolean admin;
 
     public boolean isAdmin() {
@@ -41,7 +51,8 @@ public class Account extends AbstractPersistable<Long> {
     }
  
     public void setPassword(String password) {
-        this.password = password;
+        this.salt = BCrypt.gensalt();
+        this.password = BCrypt.hashpw(password, this.salt);
     }
  
 }

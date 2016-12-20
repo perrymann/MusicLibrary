@@ -27,10 +27,16 @@
             <input type="text" name="artistName"/>
             <input type="submit" value="Search"/>
         </form>
+        
+        <!-- navigation -->
+        <p>
+            <a href="/albums" >All albums</a>
+        </p>
+        
         <div th:fragment="logout" class="logout" sec:authorize="isAuthenticated()">		
             <form action="#" th:action="@{/logout}" method="post">					
                 <input type="submit" value="Logout" />
             </form>
-        </div>    
+        </div>   
     </body>
 </html>

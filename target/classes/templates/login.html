@@ -8,7 +8,7 @@
         <h1>MUSIC LIBRARY</h1>
         
         <h3>Login</h3>
-        <form method="POST" th:action="@{/login}"> 
+        <form method="POST" th:action="@{/authenticate}"> 
             <div th:if="${param.error}">    
                 Invalid username and password.
             </div>
@@ -20,6 +20,7 @@
             <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
             <input type="submit" value="sign in" />
         </form>
-        Sign up here!
+       
+        <p>Not a member? <a th:href="@{/signup}">Sign Up Now <span> </span></a></p>
     </body>
 </html>

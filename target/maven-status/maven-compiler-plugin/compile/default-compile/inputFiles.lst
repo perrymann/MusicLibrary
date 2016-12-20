@@ -1,9 +1,9 @@
-/Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/controller/LoginController.java
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/controller/CommentController.java
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/domain/Artist.java
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/controller/DefaultController.java
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/service/AlbumCommentService.java
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/MusicLibraryApplication.java
+/Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/auth/JpaAuthenticationProvider.java
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/config/ProductionSecurityConfiguration.java
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/controller/ArtistController.java
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/service/CustomUserDetailsService.java
@@ -18,7 +18,6 @@
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/domain/StyleTag.java
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/domain/Comment.java
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/service/ArtistAlbumService.java
-/Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/config/WebMvcConfiguration.java
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/repository/AlbumRepository.java
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/config/DefaultSecurityConfiguration.java
 /Users/pn/Documents/Projektit/wepaharkka/src/main/java/MusicLibrary/controller/StyleTagController.java

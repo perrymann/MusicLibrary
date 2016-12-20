@@ -6,16 +6,27 @@
     </head>
     <body>
         <h2>Albums</h2>
-        <ol>
+        <ul>
             <li th:each="album: ${albums}">
                 <a th:href="@{/albums/{id}(id=${album.id})}" th:text="${album.title}">Artist's name</a>
             </li>
-        </ol>
+        </ul>
         
         <h2>Search for an album</h2>
         <form action="/albums" method="POST">
             <input type="text" name="condition"/>
             <input type="submit" value="Search"/>
         </form>
+        
+        <p>
+            <a href="/artists" >All artists</a>
+        </p>
+        
+        <div th:fragment="logout" class="logout" sec:authorize="isAuthenticated()">		
+            <form action="#" th:action="@{/logout}" method="post">					
+                <input type="submit" value="Logout" />
+            </form>
+        </div>  
+        
     </body>
 </html>

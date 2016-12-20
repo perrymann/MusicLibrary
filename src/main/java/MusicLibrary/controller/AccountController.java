@@ -18,7 +18,9 @@ public class AccountController {
 
     @RequestMapping(method = RequestMethod.POST)
     public String create(@ModelAttribute Account account) {
+        account.setIsAdmin(false);
+        System.out.println(account.getUsername() + "," + account.getPassword() + ", is admin: " + account.isAdmin());
         accountRepo.save(account);
-        return "redirect:/index";
+        return "redirect:/login";
     }
 }
