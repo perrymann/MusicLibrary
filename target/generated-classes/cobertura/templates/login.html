@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Login</title>
+    </head>
+    <body>
+        <h1>MUSIC LIBRARY</h1>
+        
+        <h3>Login</h3>
+        <form method="POST" th:action="@{/authenticate}"> 
+            <div th:if="${param.error}">    
+                Invalid username and password.
+            </div>
+            <div th:if="${param.logout}" > 
+                You have been logged out.
+            </div>
+            <input type="text" name="username" placeholder="Username" />
+            <input type="password" name="password" placeholder="password" /> 
+            <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
+            <input type="submit" value="sign in" />
+        </form>
+       
+        <p>Not a member? <a th:href="@{/signup}">Sign Up Now <span> </span></a></p>
+    </body>
+</html>

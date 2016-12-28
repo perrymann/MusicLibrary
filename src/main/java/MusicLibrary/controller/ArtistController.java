@@ -31,9 +31,11 @@ public class ArtistController {
     
     @RequestMapping(value="/artists/new", method=RequestMethod.POST)
     public String addArtist(@RequestParam String artistName){
-        Artist x = new Artist();
-        x.setName(artistName);
-        artistRepo.save(x);
+        if (artistRepo.findByName(artistName) == null && !artistName.isEmpty()) {
+            Artist x = new Artist();
+            x.setName(artistName);
+            artistRepo.save(x);
+        }
         return "redirect:/artists";
     }
     
