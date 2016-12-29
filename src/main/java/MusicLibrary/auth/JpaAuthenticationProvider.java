@@ -10,6 +10,7 @@ import MusicLibrary.repository.AccountRepository;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -27,6 +28,7 @@ public class JpaAuthenticationProvider implements AuthenticationProvider {
 
     @Override
     public Authentication authenticate(Authentication a) throws AuthenticationException {
+        
         String username = a.getPrincipal().toString();
         String password = a.getCredentials().toString();
 

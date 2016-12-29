@@ -15,10 +15,10 @@
             <div th:if="${param.logout}" > 
                 You have been logged out.
             </div>
-            <input type="text" name="username" placeholder="Username" />
-            <input type="password" name="password" placeholder="password" /> 
-            <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
-            <input type="submit" value="sign in" />
+            <input type="text" name="username" placeholder="Username" id="username"/>
+            <input type="password" name="password" placeholder="password" id="password"/> 
+        <!--    <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/> -->
+            <input type="submit" value="sign in"/>
         </form>
        
         <p>Not a member? <a th:href="@{/signup}">Sign Up Now <span> </span></a></p>

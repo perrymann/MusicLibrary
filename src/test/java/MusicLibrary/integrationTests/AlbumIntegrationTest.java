@@ -1,24 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package MusicLibrary.integrationTests;
 
 import MusicLibrary.controller.AlbumController;
 import MusicLibrary.domain.Album;
 import MusicLibrary.domain.Artist;
+import MusicLibrary.domain.StyleTag;
 import MusicLibrary.repository.AlbumRepository;
 import MusicLibrary.repository.ArtistRepository;
-import java.util.List;
+import MusicLibrary.repository.StyleTagRepository;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
-import org.junit.Before;
+import static junit.framework.Assert.assertTrue;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
@@ -33,27 +29,49 @@ public class AlbumIntegrationTest {
     
     @Autowired
     private AlbumRepository albumRepo;
-         
-    private Artist artist;
     
-    @Before
-    public void setUp(){
-        artist = new Artist();
-        artist.setName("Martti Servo");
-        artistRepo.save(artist);
-    }
+    @Autowired
+    private StyleTagRepository styleTagRepo;
     
     @Test
-    public void saveAlbumWorks(){
-        albumController.addAlbum(artist.getId(), "Parhaat" , "1999", "Poko");
+    public void saveAlbumWorksForArtist(){
+        Artist artist = new Artist();
+        artist.setName("Martti Servo 1");
+        artistRepo.save(artist);
+        albumController.addAlbum(artist.getId(), "Parhaat1" , "1999", "Poko");
         assertNotNull(artistRepo.findOne(artist.getId()).getAlbums());
         
     }
+    
     @Test
-    public void removeAlbumworks(){
-        albumController.addAlbum(artist.getId(), "Parhaat" , "1999", "Poko");
+    public void saveAlbumWorksGenerally(){
+        Artist artist = new Artist();
+        artist.setName("Martti Servo");
+        artistRepo.save(artist);
+        albumController.addAlbum(artist.getId(), "Savea" , "1999", "Poko");
+        assertEquals("Savea", albumRepo.findByTitle("Savea").getTitle());
+    }
+    
+    @Test
+    public void removeAlbumworksForAlbums(){
+        albumRepo.deleteAll();
+        Artist artist = new Artist();
+        artist.setName("Martti Servo 2");
+        artistRepo.save(artist);
+        albumController.addAlbum(artist.getId(), "Parhaat2" , "1999", "Poko");
         albumController.deleteAlbum(albumRepo.findAll().get(0).getId());
-        assertEquals(0, albumRepo.findAll().size());
+        assertTrue(albumRepo.findAll().isEmpty());
+    }
+    
+    @Test
+    public void removeAlbumworksForArtist() {
+        albumRepo.deleteAll();
+        Artist artist = new Artist();
+        artist.setName("Martti Servo 3");
+        artistRepo.save(artist);
+        albumController.addAlbum(artist.getId(), "Parhaat3" , "1999", "Poko");
+        albumController.deleteAlbum(albumRepo.findAll().get(0).getId());
+        assertTrue(artistRepo.findByName("Martti Servo 3").getAlbums().isEmpty());
     }
     
     // tää pitää testata

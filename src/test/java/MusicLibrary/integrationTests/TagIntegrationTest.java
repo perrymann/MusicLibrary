@@ -1,27 +1,31 @@
 
 package MusicLibrary.integrationTests;
 
+import MusicLibrary.auth.JpaAuthenticationProvider;
 import MusicLibrary.controller.AlbumController;
-import MusicLibrary.controller.CommentController;
+import MusicLibrary.controller.StyleTagController;
 import MusicLibrary.domain.Account;
 import MusicLibrary.domain.Album;
 import MusicLibrary.domain.Artist;
-import MusicLibrary.domain.Comment;
+import MusicLibrary.domain.StyleTag;
 import MusicLibrary.repository.AccountRepository;
 import MusicLibrary.repository.AlbumRepository;
 import MusicLibrary.repository.ArtistRepository;
 import MusicLibrary.repository.CommentRepository;
+import MusicLibrary.repository.StyleTagRepository;
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertNotNull;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.core.Authentication;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CommentIntegrationTest {
+public class TagIntegrationTest {
     
     private Album album;
     private Artist artist;
@@ -33,16 +37,10 @@ public class CommentIntegrationTest {
     private AlbumRepository albumRepo;
     
     @Autowired
-    private CommentRepository commentRepo;
+    private StyleTagRepository styleTagRepo;
     
     @Autowired
-    private AccountRepository accountRepo;
-    
-    @Autowired
-    private AlbumController albumController;
-    
-    @Autowired
-    private CommentController commentController;
+    private StyleTagController styleTagController;
     
     @Before
     public void setUp(){
@@ -55,17 +53,20 @@ public class CommentIntegrationTest {
         album.setReleasedIn(1970);
         album.setLabel("Indie");
         albumRepo.save(album);
-        Account account1 = new Account();
-        account1.setUsername("bubba");
-        account1.setPassword("smith123");
-        account1.setIsAdmin(true);
-        accountRepo.save(account1);
     }
     
     @Test
-    public void canSaveComment(){
-        albumController.commentAlbum("Skeidaa!", albumRepo.findAll().get(0).getId().toString());
-        Comment retrieved = commentRepo.findAll().get(0);
-        assertEquals("Skeidaa!", retrieved.getContent());
+    public void canAddTag(){
+        styleTagController.create("Heavy", album.getId());
+        assertNotNull(styleTagRepo.findByName("Heavy"));
     }
+    
+    @Test
+    public void cannotAddDuplicateTags() {
+        styleTagController.create("Heavy", album.getId());
+        styleTagController.create("Heavy", album.getId());
+        assertEquals(1, styleTagRepo.findAll().size());
+    }
+    
+    // remove tag
 }

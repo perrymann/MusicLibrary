@@ -17,15 +17,8 @@
         <h2>Add an Artist</h2>
 
         <form th:action="@{/artists/new}" method="POST">
-            <input type="text" name="artistName"/>
+            <input type="text" name="artistName" id="artistName"/>
             <input type="submit" value="Add"/>
-        </form>
-        
-        <h2>Search for an Artist</h2>
-        
-        <form th:action="@{/artists}" method="POST">
-            <input type="text" name="artistName"/>
-            <input type="submit" value="Search"/>
         </form>
         
         <!-- navigation -->
@@ -35,7 +28,7 @@
         
         <div th:fragment="logout" class="logout" sec:authorize="isAuthenticated()">		
             <form action="#" th:action="@{/logout}" method="post">					
-                <input type="submit" value="Logout" />
+                <input type="submit" value="Logout" id="logout"/>
             </form>
         </div>   
     </body>

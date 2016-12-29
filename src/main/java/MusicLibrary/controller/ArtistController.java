@@ -46,19 +46,10 @@ public class ArtistController {
         return "artistPage";
     }
     
-    @RequestMapping(value="/artists", method=RequestMethod.POST)
-    public String findArtist(@RequestParam String artistName) {
-        Artist a = artistRepo.findByName(artistName);
-        String ret = "redirect:/artists/"; 
-        if (a != null) ret += a.getId();
-        return ret;
-    }
-    
     @Secured("ADMIN")
     @RequestMapping(value="/artists/{id}", method=RequestMethod.DELETE)
     public String deleteArtist(@PathVariable Long id){
         aas.deleteArtistAndDeleteAlbums(id);
-        
         return "redirect:/artists";
     }
     

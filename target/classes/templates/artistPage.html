@@ -9,7 +9,7 @@
     <body>
         <h1 th:text="${artist.name}">Artist</h1>
         <div sec:authorize="hasAuthority('ADMIN')">
-            <form th:action="@{/artists/{id}(id=${artist.id})}" th:method="DELETE"><input type="submit" value="Delete artist"/></form>
+            <form th:action="@{/artists/{id}(id=${artist.id})}" th:method="DELETE"><input type="submit" value="Delete artist" id="delete"/></form>
         </div>
         <h3>Albums</h3>
         <ul>
@@ -20,11 +20,11 @@
         
         <h3>Add an Album</h3>
         <form th:action="@{/artists/{id}(id=${artist.id})}" method="POST">
-            Title: <input type="text" name="title"/><br/>
-            Released: <input type="text" name="year"/><br/>
-            Label: <input type="text" name="label"/><br/>
+            Title: <input type="text" name="title" id="title"/><br/>
+            Released: <input type="text" name="year" id="year"/><br/>
+            Label: <input type="text" name="label" id="label"/><br/>
             <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
-            <input type="submit" value="Add"/>
+            <input type="submit" value="Add" id="add"/>
            
         </form> 
         

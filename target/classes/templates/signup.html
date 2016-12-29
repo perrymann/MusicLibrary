@@ -10,12 +10,12 @@
             <table>
                 <tr>
                     <td>Username </td>
-                    <td><input type="text" th:field="*{username}" /></td>
+                    <td><input type="text" th:field="*{username}" id="username"/></td>
                     <td><div th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Virheviesti</div></td>
                 </tr>
                 <tr>
                     <td>Password </td>
-                    <td><input type="text" name="password" /></td>
+                    <td><input type="text" name="password" id="password"/></td>
                 </tr> 
                 <tr>
                     <td><button type="submit" >Sign up</button></td>

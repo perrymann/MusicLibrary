@@ -47,7 +47,7 @@ public class AlbumController {
     @Autowired
     private AlbumCommentService acs;
     
-    // view puuttuu
+    // View all albums
     @RequestMapping("/albums")
     public String index(Model model) {
         model.addAttribute("albums", albumRepo.findAll());
@@ -94,7 +94,7 @@ public class AlbumController {
         album.setLabel(label);
         album.setArtist(artist);
         albumRepo.save(album);
-        aas.addAlbumToArtist(album, id);
+        //aas.addAlbumToArtist(album, id);
         return "redirect:/artists/" + id;
     }
     
@@ -104,9 +104,9 @@ public class AlbumController {
     @RequestMapping(value="/albums/{id}", method=RequestMethod.DELETE)
     public String deleteAlbum(@PathVariable Long id) {
         Album album = albumRepo.findOne(id);
-        Artist artist = album.getArtist();
+        Artist artist = artistRepo.findOne(album.getArtist().getId());
         ass.removeAlbumsFromTags(album);
-        aas.removeAlbumFromArtist(album, artist);
+        //aas.removeAlbumFromArtist(album, artist);
         for (Comment i : album.getComments()){
             commentRepo.delete(i);
         }
@@ -128,6 +128,7 @@ public class AlbumController {
         return "redirect:/albums/" + id; 
     }
    
+    
     
    
 }

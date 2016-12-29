@@ -16,7 +16,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableWebSecurity
 public class DefaultSecurityConfiguration extends WebSecurityConfigurerAdapter {
-
+    
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
@@ -42,7 +42,7 @@ public class DefaultSecurityConfiguration extends WebSecurityConfigurerAdapter {
     
     @Configuration
     protected static class AuthenticationConfiguration extends GlobalAuthenticationConfigurerAdapter {
-
+       
         @Autowired
         private JpaAuthenticationProvider jpaAuthenticationProvider;
 

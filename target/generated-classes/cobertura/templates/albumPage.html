@@ -19,7 +19,7 @@
                      <div sec:authorize="hasAuthority('ADMIN')">
                         <form th:action="@{/styletags/{id}(id=${styletag.id})}" th:method="PUT">
                             <input type="hidden"  name="albumId"   th:value="${album.id}"/>
-                            <input type="submit" value="Remove tag from this Album"/>
+                            <input type="submit" value="Remove tag from this Album" id="removeTag"/>
                         </form>
                     </div>
                 </li>
@@ -31,31 +31,31 @@
                     ~ added by <span th:text="${comment.account.username}">Added by</span>
                     (<span th:text="${comment.date}">date</span>)
                     <div sec:authorize="hasAuthority('ADMIN')">
-                        <form th:action="@{/comments/{id}(id=${comment.id})}" th:method="DELETE"><input type="submit" value="Delete"/></form>
+                        <form th:action="@{/comments/{id}(id=${comment.id})}" th:method="DELETE"><input type="submit" value="Delete" id="deleteComment"/></form>
                     </div>
                 </li>
             </ul>
         
         <h4>Add comment</h4>
-        <form th:action="@{/albums/{id}/comment(id=${album.id})}" method="POST">
-            <input type="text" name="content"/>
-            <input type="submit" value="Add comment"/>
+        <form th:action="@{/albums/{id}/comment(id=${album.id})}" method="POST" id="addComment">
+            <input type="text" name="content" id="content"/>
+            <input type="submit" value="Add comment" id="comment"/>
         </form>
         <div th:if="${not #lists.isEmpty(styleTags)}"> 
             <h4>Tag album</h4>
             <form th:action="@{/albums/{id}(id=${album.id})}" method="POST">
                 <select name="id">
-                    <option th:each="styleTag : ${styleTags}" th:value="${styleTag.id}" th:text="${styleTag.name}"></option>
+                    <option th:each="styleTag : ${styleTags}" th:value="${styleTag.id}" th:text="${styleTag.name}" id="tagSelector"></option>
                 </select>
-                <input type="submit" value="Tag album!"/>
+                <input type="submit" value="Tag album!" id="tagAlbum"/>
             </form>
         </div>
         
         <h4>Add new tag to tag list!</h4>
         <form th:action="@{/styletags/new}" method="POST">
-            <input type="text" name="name"/>
+            <input type="text" name="name" id="newTag"/>
             <input type="hidden"  name="albumId"   th:value="${album.id}"/>
-            <input type="submit" value="Add new tag!"/>
+            <input type="submit" value="Add new tag!" id="addNewTag"/>
         </form>
         
         <!-- navigation -->

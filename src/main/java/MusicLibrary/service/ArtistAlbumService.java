@@ -29,15 +29,17 @@ public class ArtistAlbumService {
     @Autowired
     private AlbumCommentService acs;
      
-    public void addAlbumToArtist(Album album, Long artistId) {
-        Artist artist = artistRepo.findOne(artistId);
-        artist.getAlbums().add(album);
-        artistRepo.save(artist);
-    }
+//    public void addAlbumToArtist(Album album, Long artistId) {
+//        Artist artist = artistRepo.findOne(artistId);
+//        artist.getAlbums().add(album);
+//        artistRepo.save(artist);
+//    }
     
-    public void removeAlbumFromArtist(Album album, Artist artist) {
-        artist.getAlbums().remove(album);
-    }
+//    @Transactional
+//    public void removeAlbumFromArtist(Album album, Artist artist) {
+//        artist.getAlbums().remove(album);
+//        artistRepo.save(artist);
+//    }
     
     @Transactional
     public void deleteArtistAndDeleteAlbums(Long id){
