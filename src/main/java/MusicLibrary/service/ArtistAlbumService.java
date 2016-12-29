@@ -2,12 +2,9 @@
 package MusicLibrary.service;
 
 import MusicLibrary.domain.Album;
-import MusicLibrary.domain.Artist;
 import MusicLibrary.repository.AlbumRepository;
 import MusicLibrary.repository.ArtistRepository;
-import MusicLibrary.repository.StyleTagRepository;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,18 +25,6 @@ public class ArtistAlbumService {
     
     @Autowired
     private AlbumCommentService acs;
-     
-//    public void addAlbumToArtist(Album album, Long artistId) {
-//        Artist artist = artistRepo.findOne(artistId);
-//        artist.getAlbums().add(album);
-//        artistRepo.save(artist);
-//    }
-    
-//    @Transactional
-//    public void removeAlbumFromArtist(Album album, Artist artist) {
-//        artist.getAlbums().remove(album);
-//        artistRepo.save(artist);
-//    }
     
     @Transactional
     public void deleteArtistAndDeleteAlbums(Long id){
@@ -58,8 +43,4 @@ public class ArtistAlbumService {
         }
         artistRepo.delete(id);
     }
-            
-    
-    
-    
 }
