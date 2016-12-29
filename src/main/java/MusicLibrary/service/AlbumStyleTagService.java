@@ -18,14 +18,14 @@ public class AlbumStyleTagService {
     @Autowired
     private StyleTagRepository styleTagRepo;
     
+    // Adds a tag for a certain album
+    
     @Transactional
     public void addTagsforAlbums(Long albumId, Long styleTagId) {
         Album album = albumRepo.findOne(albumId);
         StyleTag styleTag = styleTagRepo.findOne(styleTagId);
         album.getTags().add(styleTag);
         styleTag.getAlbums().add(album);
-       // albumRepo.save(album);
-       // styleTagRepo.save(styleTag);
     }
     
     // Removes the references form the tags, if a certain album is deleted
@@ -47,18 +47,4 @@ public class AlbumStyleTagService {
         tag.getAlbums().remove(album);
         styleTagRepo.save(tag);
     }
-    
-    /*
-    // If a tag is deleted from the database, it must be removed from all the albums that include it.
-    // ei oo vielä toiminnallisuutta
-    public void removeTagFromAlbums(StyleTag tag) {
-        for (Album album : albumRepo.findAll()){
-            if(album.getTags().contains(tag)) {
-                album.getTags().remove(tag);
-                albumRepo.save(album);
-            }
-        }
-    }
-    */
-  
 }
