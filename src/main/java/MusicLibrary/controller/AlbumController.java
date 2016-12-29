@@ -37,10 +37,7 @@ public class AlbumController {
     
     @Autowired
     private CommentRepository commentRepo;
-    
-    @Autowired
-    private ArtistAlbumService aas;
-    
+   
     @Autowired
     private AlbumStyleTagService ass;
     
@@ -95,7 +92,6 @@ public class AlbumController {
         album.setLabel(label);
         album.setArtist(artist);
         albumRepo.save(album);
-        //aas.addAlbumToArtist(album, id);  Tarpeeton??
         return "redirect:/artists/" + id;
     }
     
@@ -107,7 +103,6 @@ public class AlbumController {
         Album album = albumRepo.findOne(id);
         Artist artist = artistRepo.findOne(album.getArtist().getId());
         ass.removeAlbumsFromTags(album);
-        //aas.removeAlbumFromArtist(album, artist); Tarpeeton?
         for (Comment i : album.getComments()){
             commentRepo.delete(i);
         }
@@ -117,12 +112,14 @@ public class AlbumController {
         return "redirect:/artists/" + artist.getId();
     }
     
+    // Adds tag for a certain album
     @RequestMapping(value = "/albums/{albumId}", method=RequestMethod.POST)
     public String addTagsToAlbum(@PathVariable Long albumId, @RequestParam Long id){
         ass.addTagsforAlbums(albumId, id);
         return "redirect:/albums/" + albumId; 
     }
     
+    // Adds comment for a certain album
     @RequestMapping(value = "/albums/{id}/comment", method=RequestMethod.POST)
     public String commentAlbum(@RequestParam String content, @PathVariable String id){
         acs.commentAlbum(content, Long.parseLong(id));
