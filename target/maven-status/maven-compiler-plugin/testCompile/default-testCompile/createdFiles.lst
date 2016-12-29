@@ -1,4 +1,6 @@
-MusicLibrary/integrationTests/AlbumIntegrationTest.class
-MusicLibrary/integrationTests/ArtistIntegrationTest.class
+MusicLibrary/systemTests/Test2_AlbumActionsTest.class
 MusicLibrary/integrationTests/TagIntegrationTest.class
 MusicLibrary/systemTests/MusicLibraryAuthTest.class
+MusicLibrary/systemTests/Test1_ArtistAlbumActionsTest.class
+MusicLibrary/integrationTests/AlbumIntegrationTest.class
+MusicLibrary/integrationTests/ArtistIntegrationTest.class

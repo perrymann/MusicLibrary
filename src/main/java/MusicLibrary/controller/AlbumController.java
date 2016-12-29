@@ -88,13 +88,14 @@ public class AlbumController {
                 return "redirect:/artists/" + id;
             }
         }
+        
         Album album = new Album();
         album.setTitle(title);
         album.setReleasedIn(Integer.parseInt(year));
         album.setLabel(label);
         album.setArtist(artist);
         albumRepo.save(album);
-        //aas.addAlbumToArtist(album, id);
+        //aas.addAlbumToArtist(album, id);  Tarpeeton??
         return "redirect:/artists/" + id;
     }
     
@@ -106,7 +107,7 @@ public class AlbumController {
         Album album = albumRepo.findOne(id);
         Artist artist = artistRepo.findOne(album.getArtist().getId());
         ass.removeAlbumsFromTags(album);
-        //aas.removeAlbumFromArtist(album, artist);
+        //aas.removeAlbumFromArtist(album, artist); Tarpeeton?
         for (Comment i : album.getComments()){
             commentRepo.delete(i);
         }
@@ -127,8 +128,4 @@ public class AlbumController {
         acs.commentAlbum(content, Long.parseLong(id));
         return "redirect:/albums/" + id; 
     }
-   
-    
-    
-   
 }
