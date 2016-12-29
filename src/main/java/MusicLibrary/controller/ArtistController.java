@@ -4,7 +4,6 @@ package MusicLibrary.controller;
 import MusicLibrary.domain.Artist;
 import MusicLibrary.repository.ArtistRepository;
 import MusicLibrary.service.ArtistAlbumService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
