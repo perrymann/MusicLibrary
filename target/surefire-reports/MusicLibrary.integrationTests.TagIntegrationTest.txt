@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: MusicLibrary.integrationTests.TagIntegrationTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.116 sec - in MusicLibrary.integrationTests.TagIntegrationTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.539 sec - in MusicLibrary.integrationTests.TagIntegrationTest

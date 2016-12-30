@@ -21,7 +21,7 @@
         <h3>Add an Album</h3>
         <form th:action="@{/artists/{id}(id=${artist.id})}" method="POST">
             Title: <input type="text" name="title" id="title"/><br/>
-            Released: <input type="text" name="year" id="year"/><br/>
+            Released: <input type="text" name="year" id="year" placeholder="4 digits, eg. 1982, min 1900"/><br/>
             Label: <input type="text" name="label" id="label"/><br/>
             <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
             <input type="submit" value="Add" id="add"/>

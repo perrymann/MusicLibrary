@@ -85,13 +85,14 @@ public class AlbumController {
                 return "redirect:/artists/" + id;
             }
         }
-        
-        Album album = new Album();
-        album.setTitle(title);
-        album.setReleasedIn(Integer.parseInt(year));
-        album.setLabel(label);
-        album.setArtist(artist);
-        albumRepo.save(album);
+        if (!title.isEmpty() && !label.isEmpty() && !year.isEmpty() && Integer.parseInt(year) >= 1900) {
+            Album album = new Album();
+            album.setTitle(title);
+            album.setReleasedIn(Integer.parseInt(year));
+            album.setLabel(label);
+            album.setArtist(artist);
+            albumRepo.save(album);
+        }
         return "redirect:/artists/" + id;
     }
     
@@ -122,7 +123,9 @@ public class AlbumController {
     // Adds comment for a certain album
     @RequestMapping(value = "/albums/{id}/comment", method=RequestMethod.POST)
     public String commentAlbum(@RequestParam String content, @PathVariable String id){
-        acs.commentAlbum(content, Long.parseLong(id));
+        if (!content.isEmpty()) {
+            acs.commentAlbum(content, Long.parseLong(id));
+        }
         return "redirect:/albums/" + id; 
     }
 }
